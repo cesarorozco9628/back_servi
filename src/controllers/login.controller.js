@@ -6,6 +6,7 @@ const bcryptjs = require('bcryptjs');
 
 
 const login = async (req, res) => {
+  console.log(req)
   const { password, email, username } = req.body;
   if (!password || !email || !username) {
     return res.status(400).json({ error: 'Faltan datos requeridos.' });
