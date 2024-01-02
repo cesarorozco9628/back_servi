@@ -22,9 +22,14 @@ const login = async (req, res) => {
       return res.status(401).json({ error: 'Contraseña incorrecta.' });
     }
 
+    if( user.user !== username ){
+      return res.status(401).json({error:'Usuario incorrecto'});
+    }
+
+
     delete user.password;
     // Éxito: enviar el usuario como respuesta
-    res.json({user});
+    res.status(200).json({user});
 
   } catch (error) {
     res.status(500).json({ mes_error: 'Error interno del servidor.', error  });
