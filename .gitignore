@@ -1,3 +1,4 @@
 access.log
 .sequelizerc
 node_modules
+swagger.json
