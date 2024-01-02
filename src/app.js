@@ -8,17 +8,12 @@ const cors = require('cors');
 
 const loginRoutes = require('./routes/login.routes');
 
-const corsOptions = {
-  origin: 'http://http://localhost:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Si tu aplicación React envía credenciales (cookies, por ejemplo)
-};
 
 
 //Middleware
  app.use(express.json());
  app.use(helmet());
- app.use(cors(corsOptions));
+ app.use(cors());
  app.use(express.urlencoded({extended:false}));
  app.use(logger('combined', {stream: fs.createWriteStream('./access.log', {flags: 'a'})}));
  
